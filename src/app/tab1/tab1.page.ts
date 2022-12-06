@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-tab1',
@@ -6,7 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+  produtosForm!:FormGroup;
 
-  constructor() {}
+  constructor(
+    private formBuilder:FormBuilder
+  ) {}
 
 }
