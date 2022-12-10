@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
+import { EnderecoModel } from 'src/app/models/endereco.model';
 import { FornecedorModel } from 'src/app/models/fornecedor.model';
+import { CorreiosService } from 'src/app/services/correios.service';
 import { EstoqueService } from 'src/app/services/estoque.service';
 
 @Component({
@@ -15,7 +17,8 @@ export class ModalCadastroFornecedorComponent implements OnInit {
   constructor(
     private modalCtrl:ModalController,
     private formBuilder:FormBuilder,
-    private service:EstoqueService
+    private service:EstoqueService,
+    private correiosService:CorreiosService
   ) { }
 
   ngOnInit() {
@@ -43,6 +46,22 @@ export class ModalCadastroFornecedorComponent implements OnInit {
     this.service.cadastraFornecedor(fornecedor).subscribe({
       next:()=>this.cancel()
     });
+  }
+
+  carregaEndereco(){
+    const cep = this.cadastraFornecedorForm.get('endereco')?.get('cep')?.value;
+    this.correiosService.pegaEndereco(cep).subscribe({
+      next:(end:EnderecoModel)=>{
+        console.log(end)
+        this.cadastraFornecedorForm.get('endereco')?.patchValue({
+          cep:end.cep,
+          uf: end.uf,
+          localidade: end.localidade,
+          bairro: end.bairro,
+          logradouro: end.logradouro
+        })
+      }
+    })
   }
 
 

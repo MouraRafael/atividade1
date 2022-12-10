@@ -33,7 +33,7 @@
         </ion-item-divider>
         <ion-item>
           <ion-label position="stacked">CEP</ion-label>
-          <ion-input formControlName="cep" type="text" required></ion-input>
+          <ion-input formControlName="cep" type="text" required (change)="carregaEndereco()"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">UF</ion-label>

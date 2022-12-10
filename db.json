@@ -39,6 +39,34 @@
         "numero": "3559595959"
       },
       "id": 2
+    },
+    {
+      "razaoSocial": "Marke LTD",
+      "cnpj": "60.078.718/0001-22",
+      "contato": "(21) 8589-6595",
+      "endereco": {
+        "cep": "46595-032",
+        "uf": "SP",
+        "localidade": "São Paulo",
+        "bairro": "Vila Mimosa",
+        "logradouro": "Rua Vermelha",
+        "numero": "95C"
+      },
+      "id": 3
+    },
+    {
+      "razaoSocial": "Mercado do Dinho",
+      "cnpj": "59.880.349/0001-08",
+      "contato": "(21) 2597-4646",
+      "endereco": {
+        "cep": "20975-090",
+        "uf": "RJ",
+        "localidade": "Rio de Janeiro",
+        "bairro": "Jacarezinho",
+        "logradouro": "Rua Bráulio Cordeiro",
+        "numero": "35"
+      },
+      "id": 4
     }
   ]
 }
