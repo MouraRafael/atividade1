@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <form [formGroup]="cadastraFornecedorForm">
+  <form [formGroup]="cadastraFornecedorForm" (submit)="cadastraFornecedor()">
     <ion-list lines="full" class="ion-no-margin ion-no-padding">
       <ion-item-group>
         <ion-item-divider>
@@ -26,35 +26,42 @@
           <ion-input formControlName="contato" type="tel" required></ion-input>
         </ion-item>
       </ion-item-group>
-      <ion-item-group>
+
+      <ion-item-group formGroupName="endereco">
         <ion-item-divider>
           <ion-label>Endereço</ion-label>
         </ion-item-divider>
-        <div  formControlName="endereco">
-          <ion-item>
-            <ion-label>Logradouro</ion-label>
-            <ion-input formControlName="logradouro" type="text" required></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label>Número</ion-label>
-            <ion-input formControlName="numero" type="text" required></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label>Bairro</ion-label>
-            <ion-input formControlName="bairro" type="text" required></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label>Cidade</ion-label>
-            <ion-input formControlName="cidade" type="text" required></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label>CEP</ion-label>
-            <ion-input formControlName="cep" type="text" required></ion-input>
-          </ion-item>
+        <ion-item>
+          <ion-label position="stacked">CEP</ion-label>
+          <ion-input formControlName="cep" type="text" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">UF</ion-label>
+          <ion-input formControlName="uf" type="text" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Cidade</ion-label>
+          <ion-input formControlName="localidade" type="text" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">bairro</ion-label>
+          <ion-input formControlName="bairro" type="text" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Logradouro</ion-label>
+          <ion-input formControlName="logradouro" type="text" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Número</ion-label>
+          <ion-input formControlName="numero" type="text" required></ion-input>
+        </ion-item>
 
-        </div>
+
       </ion-item-group>
     </ion-list>
+    <div class="ion-padding">
+      <ion-button  expand="block" type="submit" class="ion-no-margin">Registrar</ion-button>
+    </div>
   </form>
   {{logradouro.value}}
 </ion-content>

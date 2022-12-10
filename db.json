@@ -17,11 +17,18 @@
       "razaoSocial": "Urba",
       "cnpj": "59595.5959",
       "endereço": {
-        "logradouro": "Rua Quinze",
-        "numero": 75,
-        "bairro": "Jacaré",
-        "cidade": "Rio ded Janeiro",
-        "cep": "20970-070"
+        "cep":"20970-070",
+        "uf":"RJ",
+        "localidade":"Rio de Janeiro",
+        "bairro":"Jacaré",
+        "logradouro":"Rua Silva Pinto",
+        "numero":"75A"
+
+
+
+
+
+
       },
       "contato": "(21) 20989-50050"
     }

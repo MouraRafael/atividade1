@@ -1,7 +1,9 @@
 export interface EnderecoModel{
-  logradouro:string;
-  numero:number;
-  bairro:string;
-  cidade:string;
   cep:string;
+  uf:string;
+  localidade:string;
+  bairro:string;
+  logradouro:string;
+  numero:string;
+
 }
