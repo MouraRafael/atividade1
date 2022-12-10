@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { ModalCadastroFornecedorComponent } from '../modals/modal-cadastro-fornecedor/modal-cadastro-fornecedor.component';
+import { ModalCadastroProdutoComponent } from '../modals/modal-cadastro-produto/modal-cadastro-produto.component';
 import { FornecedorModel } from '../models/fornecedor.model';
 import { EstoqueService } from '../services/estoque.service';
 
@@ -34,9 +35,15 @@ export class Tab1Page {
   }
 
 
-  async abreModalCadastro(){
+  async abreModalCadastroFornecedor(){
     const modal = await this.modalCtrl.create({
       component:ModalCadastroFornecedorComponent
+    })
+    modal.present();
+  }
+  async abreModalCadastroProduto(){
+    const modal = await this.modalCtrl.create({
+      component:ModalCadastroProdutoComponent
     })
     modal.present();
   }
