@@ -27,7 +27,7 @@ export class Tab1Page {
     await this.service.getFornecedor().subscribe({
       next:(result)=>{
         this.fornecedor = result;
-        console.log(this.fornecedor)
+
         console.log(this.fornecedor[0].endereço)
       }
     })

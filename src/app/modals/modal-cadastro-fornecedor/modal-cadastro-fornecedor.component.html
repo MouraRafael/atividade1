@@ -23,7 +23,7 @@
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Contato</ion-label>
-          <ion-input formControlName="contato" type="tel" required></ion-input>
+          <ion-input formControlName="contato" type="tel" placeholder="(xx) xxxx-xxxx" required></ion-input>
         </ion-item>
       </ion-item-group>
 
@@ -37,7 +37,7 @@
         </ion-item>
         <ion-item>
           <ion-label position="stacked">UF</ion-label>
-          <ion-input formControlName="uf" type="text" required></ion-input>
+          <ion-input formControlName="uf" type="text" required maxlength="2" minlength="2"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Cidade</ion-label>
@@ -60,7 +60,7 @@
       </ion-item-group>
     </ion-list>
     <div class="ion-padding">
-      <ion-button  expand="block" type="submit" class="ion-no-margin">Registrar</ion-button>
+      <ion-button  expand="block" type="submit" class="ion-no-margin" [disabled]="cadastraFornecedorForm.invalid">Registrar</ion-button>
     </div>
   </form>
   {{logradouro.value}}

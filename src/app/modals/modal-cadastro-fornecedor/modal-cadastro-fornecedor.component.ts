@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { FornecedorModel } from 'src/app/models/fornecedor.model';
 import { EstoqueService } from 'src/app/services/estoque.service';
@@ -20,16 +20,16 @@ export class ModalCadastroFornecedorComponent implements OnInit {
 
   ngOnInit() {
     this.cadastraFornecedorForm = this.formBuilder.group({
-      razaoSocial:[''],
-      cnpj:[''],
-      contato:[''],
+      razaoSocial:['',[Validators.required,Validators.minLength(5),Validators.maxLength(100)]],
+      cnpj:['',[Validators.required,Validators.pattern(/\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}/)]],
+      contato:['',[Validators.required,Validators.pattern(/^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$/)]],
       endereco:this.formBuilder.group({
-        cep:[''],
-        uf:[''],
-        localidade:[''],
-        bairro:[''],
-        logradouro:[''],
-        numero:['']
+        cep:['',[Validators.required,Validators.pattern(/\d{5}-?\d{3}/)]],
+        uf:['',[Validators.required,Validators.minLength(2),Validators.maxLength(2)]],
+        localidade:['',[Validators.required,Validators.minLength(3)]],
+        bairro:['',[Validators.required,Validators.minLength(3),Validators.maxLength(100)]],
+        logradouro:['',[Validators.required,Validators.minLength(3),Validators.maxLength(100)]],
+        numero:['',[Validators.required,Validators.pattern(/^[0-9]+/)]]
       })
     })
   }
