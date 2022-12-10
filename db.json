@@ -5,7 +5,10 @@
       "estoque":5,
       "precoCompra":15.48,
       "precoVenda":21.00,
-      "fornecedor":1
+      "fornecedor":{
+        "id":1,
+        "razaoSocial":"Urba"
+      }
     }
   ],
   "fornecedor":[

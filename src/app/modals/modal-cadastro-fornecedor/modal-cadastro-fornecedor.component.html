@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Fechar</ion-button>
+    </ion-buttons>
+    <ion-title>Cadastro de Fornecedores</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="cadastraFornecedorForm">
+    <ion-list lines="full" class="ion-no-margin ion-no-padding">
+      <ion-item-group>
+        <ion-item-divider>
+          <ion-label>Informações do Fornecedor</ion-label>
+        </ion-item-divider>
+        <ion-item>
+          <ion-label position="stacked">Razão Social</ion-label>
+          <ion-input formControlName="razaoSocial" type="text" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">cnpj</ion-label>
+          <ion-input formControlName="cnpj" type="email" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Contato</ion-label>
+          <ion-input formControlName="contato" type="tel" required></ion-input>
+        </ion-item>
+      </ion-item-group>
+      <ion-item-group>
+        <ion-item-divider>
+          <ion-label>Endereço</ion-label>
+        </ion-item-divider>
+        <div  formControlName="endereco">
+          <ion-item>
+            <ion-label>Logradouro</ion-label>
+            <ion-input formControlName="logradouro" type="text" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Número</ion-label>
+            <ion-input formControlName="numero" type="text" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Bairro</ion-label>
+            <ion-input formControlName="bairro" type="text" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Cidade</ion-label>
+            <ion-input formControlName="cidade" type="text" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>CEP</ion-label>
+            <ion-input formControlName="cep" type="text" required></ion-input>
+          </ion-item>
+
+        </div>
+      </ion-item-group>
+    </ion-list>
+  </form>
+  {{logradouro.value}}
+</ion-content>
+
+<!--
+  logradouro
+numero
+bairro
+cidade
+cep
+ -->

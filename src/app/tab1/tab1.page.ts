@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { ModalCadastroFornecedorComponent } from '../modals/modal-cadastro-fornecedor/modal-cadastro-fornecedor.component';
 import { FornecedorModel } from '../models/fornecedor.model';
 import { EstoqueService } from '../services/estoque.service';
 
@@ -15,14 +17,10 @@ export class Tab1Page {
   produtosForm!:FormGroup;
 
   constructor(
-    private formBuilder:FormBuilder,
     private service:EstoqueService,
-    private router:Router
+    private modalCtrl:ModalController
   ) {}
 
-  toCadastroFornecedores(){
-    this.router.navigateByUrl('tabs/tab1/cadforn')
-  }
 
 
   async getFornecedor(){
@@ -33,5 +31,13 @@ export class Tab1Page {
         console.log(this.fornecedor[0].endereço)
       }
     })
+  }
+
+
+  async abreModalCadastro(){
+    const modal = await this.modalCtrl.create({
+      component:ModalCadastroFornecedorComponent
+    })
+    modal.present();
   }
 }
