@@ -1,34 +1,28 @@
 {
-  "produto":[
+  "produto": [
     {
-      "nome":"Pão Jão",
-      "estoque":5,
-      "precoCompra":15.48,
-      "precoVenda":21.00,
-      "fornecedor":{
-        "id":1,
-        "razaoSocial":"Urba"
+      "nome": "Pão Jão",
+      "estoque": 5,
+      "precoCompra": 15.48,
+      "precoVenda": 21,
+      "fornecedor": {
+        "id": 1,
+        "razaoSocial": "Urba"
       }
     }
   ],
-  "fornecedor":[
+  "fornecedor": [
     {
       "id": 1,
       "razaoSocial": "Urba",
       "cnpj": "59595.5959",
       "endereço": {
-        "cep":"20970-070",
-        "uf":"RJ",
-        "localidade":"Rio de Janeiro",
-        "bairro":"Jacaré",
-        "logradouro":"Rua Silva Pinto",
-        "numero":"75A"
-
-
-
-
-
-
+        "cep": "20970-070",
+        "uf": "RJ",
+        "localidade": "Rio de Janeiro",
+        "bairro": "Jacaré",
+        "logradouro": "Rua Silva Pinto",
+        "numero": "75A"
       },
       "contato": "(21) 20989-50050"
     }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { FornecedorModel } from 'src/app/models/fornecedor.model';
+import { EstoqueService } from 'src/app/services/estoque.service';
 
 @Component({
   selector: 'app-modal-cadastro-fornecedor',
@@ -13,7 +14,8 @@ export class ModalCadastroFornecedorComponent implements OnInit {
 
   constructor(
     private modalCtrl:ModalController,
-    private formBuilder:FormBuilder
+    private formBuilder:FormBuilder,
+    private service:EstoqueService
   ) { }
 
   ngOnInit() {
@@ -38,7 +40,9 @@ export class ModalCadastroFornecedorComponent implements OnInit {
 
   cadastraFornecedor(){
     const fornecedor = this.cadastraFornecedorForm.getRawValue() as FornecedorModel;
-    console.log(fornecedor)
+    this.service.cadastraFornecedor(fornecedor).subscribe({
+      next:()=>this.cancel()
+    });
   }
 
 
