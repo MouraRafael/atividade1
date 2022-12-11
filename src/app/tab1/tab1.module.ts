@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { EstoqueService } from '../services/estoque.service';
 import { ModalCadastroFornecedorModule } from '../modals/modal-cadastro-fornecedor/modal-cadastro-fornecedor.module';
 import { ModalCadastroProdutoModule } from '../modals/modal-cadastro-produto/modal-cadastro-produto.module';
+import { ModalDetalhesFornecedorModule } from '../modals/modal-detalhes-fornecedor/modal-detalhes-fornecedor.module';
 
 @NgModule({
   imports: [
@@ -20,7 +21,7 @@ import { ModalCadastroProdutoModule } from '../modals/modal-cadastro-produto/mod
     Tab1PageRoutingModule,
     HttpClientModule,
     ModalCadastroFornecedorModule,
-    ModalCadastroProdutoModule
+    ModalCadastroProdutoModule,
   ],
   declarations: [Tab1Page],
   providers:[EstoqueService]

@@ -4,8 +4,7 @@ import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { ModalCadastroFornecedorComponent } from '../modals/modal-cadastro-fornecedor/modal-cadastro-fornecedor.component';
 import { ModalCadastroProdutoComponent } from '../modals/modal-cadastro-produto/modal-cadastro-produto.component';
-import { FornecedorModel } from '../models/fornecedor.model';
-import { EstoqueService } from '../services/estoque.service';
+
 
 @Component({
   selector: 'app-tab1',
@@ -13,26 +12,13 @@ import { EstoqueService } from '../services/estoque.service';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-  asdf = 'kokoko'
-  fornecedor!:FornecedorModel[]
-  produtosForm!:FormGroup;
-
   constructor(
-    private service:EstoqueService,
     private modalCtrl:ModalController
   ) {}
 
 
 
-  async getFornecedor(){
-    await this.service.getFornecedor().subscribe({
-      next:(result)=>{
-        this.fornecedor = result;
 
-        console.log(this.fornecedor[0].endereço)
-      }
-    })
-  }
 
 
   async abreModalCadastroFornecedor(){

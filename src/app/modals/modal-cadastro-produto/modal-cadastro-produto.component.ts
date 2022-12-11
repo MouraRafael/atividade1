@@ -22,7 +22,7 @@ export class ModalCadastroProdutoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.service.getFornecedor().subscribe({
+    this.service.listarFornecedores().subscribe({
       next:(fornecedores)=>{
         fornecedores.forEach((f)=>{
           this.fornecedores.push(f)

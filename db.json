@@ -22,6 +22,18 @@
       "percentagemLucro": "123",
       "precoVenda": 274.28999999999996,
       "id": 2
+    },
+    {
+      "nome": "Alcatra",
+      "estoque": 63,
+      "precoCompra": 15000.12,
+      "fornecedor": {
+        "id": "3",
+        "razaoSocial": "Marke LTD"
+      },
+      "percentagemLucro": "20",
+      "precoVenda": 18000.144,
+      "id": 3
     }
   ],
   "fornecedor": [

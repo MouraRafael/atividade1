@@ -1,0 +1,21 @@
+ion-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100vw;
+    border: solid 1px rgb(126, 126, 126);
+    color: #000;
+  }
+  ion-row{
+    background-color: white;
+    border: 1px black solid;
+
+  }
+  ion-row:first-child{
+    background-color: grey;
+  }
+
+ion-grid{
+    height: fit-content;;
+}
