@@ -53,5 +53,8 @@ export class EstoqueService {
   getProduto(id:number):Observable<ProdutoModel>{
     return this.http.get<ProdutoModel>(`${API_URL}/produto/${id}`,HTTP_OPTIONS);
   }
+  deletaProduto(id:number){
+    return this.http.delete(`${API_URL}/produto/${id}`,HTTP_OPTIONS)
+  }
 
 }

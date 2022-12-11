@@ -14,7 +14,6 @@ export class ModalDetalhesFornecedorComponent {
   @Input() fornecedor!:FornecedorModel;
   constructor(
     private modalCtrl:ModalController,
-    private router:Router,
     private service:EstoqueService
   ) { }
 

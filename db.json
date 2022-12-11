@@ -12,18 +12,6 @@
       }
     },
     {
-      "nome": "Asda",
-      "estoque": 123,
-      "precoCompra": 123,
-      "fornecedor": {
-        "id": "1",
-        "razaoSocial": "Urba"
-      },
-      "percentagemLucro": "123",
-      "precoVenda": 274.28999999999996,
-      "id": 2
-    },
-    {
       "nome": "Alcatra",
       "estoque": 63,
       "precoCompra": 15000.12,
@@ -38,7 +26,7 @@
   ],
   "fornecedor": [
     {
-      "razaoSocial": "Marke LTDA",
+      "razaoSocial": "Marke LTDAs",
       "cnpj": "60.078.718/0001-22",
       "contato": "(21) 8589-6595",
       "endereco": {
@@ -52,7 +40,7 @@
       "id": 3
     },
     {
-      "razaoSocial": "Mercado do Dinho",
+      "razaoSocial": "Mercado do Dinhos",
       "cnpj": "59.880.349/0001-08",
       "contato": "(21) 2597-4646",
       "endereco": {
@@ -64,6 +52,20 @@
         "numero": "35"
       },
       "id": 4
+    },
+    {
+      "razaoSocial": "Barara LTDA",
+      "cnpj": "75.935.549/0001-77",
+      "contato": "(21) 2659-4545",
+      "endereco": {
+        "cep": "20975-090",
+        "uf": "RJ",
+        "localidade": "Rio de Janeiro",
+        "bairro": "Jacarezinho",
+        "logradouro": "Rua Bráulio Cordeiro",
+        "numero": "75"
+      },
+      "id": 5
     }
   ]
 }
