@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { FornecedorModel } from 'src/app/models/fornecedor.model';
 import { EstoqueService } from 'src/app/services/estoque.service';
+import { ModalCadastroFornecedorComponent } from '../modal-cadastro-fornecedor/modal-cadastro-fornecedor.component';
 
 @Component({
   selector: 'app-modal-detalhes-fornecedor',
@@ -22,8 +23,6 @@ export class ModalDetalhesFornecedorComponent {
   }
 
 
-  editarFornecedor(id:number){}
-
   deletaFornecedor(id:number){
     this.service.deletaFornecedor(id).subscribe({
       next:()=>{
@@ -32,5 +31,20 @@ export class ModalDetalhesFornecedorComponent {
       error:(err)=>console.error(err)
     })
   }
+
+
+  async editarFornecedor(id:number){
+    const modal = await this.modalCtrl.create({
+      component:ModalCadastroFornecedorComponent,
+      componentProps:{
+        'editable':true,
+        'fornecedor':this.fornecedor
+      }
+    })
+
+    this.cancel()
+    return modal.present()
+  }
+
 
 }

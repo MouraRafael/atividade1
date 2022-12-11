@@ -3,11 +3,11 @@
     <ion-buttons slot="start">
       <ion-button color="medium" (click)="cancel()">Fechar</ion-button>
     </ion-buttons>
-    <ion-title>Cadastro de Fornecedores</ion-title>
+    <ion-title>{{(editable)?  'Editar':'Cadastro de Fornecedores'}}</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <form [formGroup]="cadastraFornecedorForm" (submit)="cadastraFornecedor()">
+  <form [formGroup]="cadastraFornecedorForm" (submit)="(editable)? editarFornecedor() :cadastraFornecedor()">
     <ion-list lines="full" class="ion-no-margin ion-no-padding">
       <ion-item-group>
         <ion-item-divider>
@@ -60,7 +60,7 @@
       </ion-item-group>
     </ion-list>
     <div class="ion-padding">
-      <ion-button  expand="block" type="submit" class="ion-no-margin" [disabled]="cadastraFornecedorForm.invalid">Registrar</ion-button>
+      <ion-button  expand="block" type="submit" class="ion-no-margin" [disabled]="cadastraFornecedorForm.invalid">{{(editable) ? 'Editar Fornecedor': 'Registrar'}}</ion-button>
     </div>
   </form>
   {{logradouro.value}}

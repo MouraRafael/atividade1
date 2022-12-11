@@ -38,21 +38,7 @@
   ],
   "fornecedor": [
     {
-      "id": 1,
-      "razaoSocial": "Urba",
-      "cnpj": "59595.5959",
-      "endereço": {
-        "cep": "20970-070",
-        "uf": "RJ",
-        "localidade": "Rio de Janeiro",
-        "bairro": "Jacaré",
-        "logradouro": "Rua Silva Pinto",
-        "numero": "75A"
-      },
-      "contato": "(21) 20989-50050"
-    },
-    {
-      "razaoSocial": "Marke LTD",
+      "razaoSocial": "Marke LTDA",
       "cnpj": "60.078.718/0001-22",
       "contato": "(21) 8589-6595",
       "endereco": {

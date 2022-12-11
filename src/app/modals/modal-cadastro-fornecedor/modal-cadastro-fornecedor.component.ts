@@ -14,6 +14,9 @@ import { EstoqueService } from 'src/app/services/estoque.service';
 export class ModalCadastroFornecedorComponent implements OnInit {
   cadastraFornecedorForm!:FormGroup;
 
+  @Input() editable:boolean = false;
+  @Input() fornecedor!:FornecedorModel;
+
   constructor(
     private modalCtrl:ModalController,
     private formBuilder:FormBuilder,
@@ -35,7 +38,14 @@ export class ModalCadastroFornecedorComponent implements OnInit {
         numero:['',[Validators.required,Validators.pattern(/^[0-9]+/)]]
       })
     })
+
+
+    if(this.editable){
+      console.log("Editar", this.fornecedor)
+      this.carregaForm()
+    }
   }
+
 
   cancel(){
     this.modalCtrl.dismiss(null,'cancel')
@@ -61,6 +71,30 @@ export class ModalCadastroFornecedorComponent implements OnInit {
           logradouro: end.logradouro
         })
       }
+    })
+  }
+
+
+
+
+  carregaForm(){
+    this.cadastraFornecedorForm.patchValue({
+      razaoSocial:this.fornecedor.razaoSocial,
+      cnpj:this.fornecedor.cnpj,
+      contato:this.fornecedor.contato,
+      endereco:this.fornecedor.endereco,
+    })
+  }
+
+  editarFornecedor(){
+    const fornecedor:FornecedorModel = this.cadastraFornecedorForm.getRawValue() as FornecedorModel
+    fornecedor.id = this.fornecedor.id
+    console.log(fornecedor)
+    this.service.atualizaFornecedor(fornecedor).subscribe({
+      next:()=>{
+        this.cancel()
+      },
+      error:(err)=>console.error(err)
     })
   }
 
