@@ -8,6 +8,9 @@ import { Tab1Page } from './tab1.page';
 import { Tab1PageRoutingModule } from './tab1-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { EstoqueService } from '../services/estoque.service';
+import { ModalCadastroFornecedorModule } from '../modals/modal-cadastro-fornecedor/modal-cadastro-fornecedor.module';
+import { ModalCadastroProdutoModule } from '../modals/modal-cadastro-produto/modal-cadastro-produto.module';
+import { ModalDetalhesFornecedorModule } from '../modals/modal-detalhes-fornecedor/modal-detalhes-fornecedor.module';
 
 @NgModule({
   imports: [
@@ -16,7 +19,9 @@ import { EstoqueService } from '../services/estoque.service';
     FormsModule,
     ReactiveFormsModule,
     Tab1PageRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ModalCadastroFornecedorModule,
+    ModalCadastroProdutoModule,
   ],
   declarations: [Tab1Page],
   providers:[EstoqueService]

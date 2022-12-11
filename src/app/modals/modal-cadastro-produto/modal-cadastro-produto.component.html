@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="fechaModal()">Fechar</ion-button>
+    </ion-buttons>
+    <ion-title color="primary">{{(editable)? 'Editar Produto' :'Cadastro de Produtos'}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="cadastroProdutoForm">
+    <ion-item-group>
+      <ion-item-divider>
+        <ion-label>Dados do Produto</ion-label>
+      </ion-item-divider>
+
+      <ion-item>
+        <ion-label>Nome</ion-label>
+        <ion-input formControlName="nome" type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Estoque</ion-label>
+        <ion-input formControlName="estoque" type="number" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Preço de Compra</ion-label>
+        <ion-input formControlName="precoCompra" type="number" min="0" required></ion-input>
+      </ion-item>
+      <ion-item-group formGroupName="fornecedor">
+        <ion-item>
+          <ion-label>Fornecedor</ion-label>
+          <ion-select formControlName="id" placeholder="Selecione o Fornecedor" okText="Selecionar" cancelText="Cancelar">
+            <ion-content  *ngFor="let fornecedor of fornecedores">
+              <ion-select-option value="{{fornecedor.id}}">{{fornecedor.razaoSocial}}</ion-select-option>
+            </ion-content>
+          </ion-select>
+        </ion-item>
+      </ion-item-group>
+      <ion-item>
+        <ion-label>Margem de Lucro %</ion-label>
+        <ion-input formControlName="percentagemLucro" type="text" required></ion-input>
+      </ion-item>
+    </ion-item-group>
+
+    <div class="ion-padding">
+      <ion-button  expand="block" type="submit" class="ion-no-margin" (click)="(editable)? editarProduto(): cadastrarProduto()">{{(editable)? 'Editar': 'Registrar'}}</ion-button>
+    </div>
+  </form>
+</ion-content>
+
+<!--
+
+  nome
+estoque
+precoCompra
+fornecedor
+ -->

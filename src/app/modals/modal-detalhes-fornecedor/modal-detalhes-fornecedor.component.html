@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Fechar</ion-button>
+    </ion-buttons>
+    <ion-title>{{fornecedor.razaoSocial}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-group>
+    <ion-item-divider>
+      <ion-label>Detalhes</ion-label>
+    </ion-item-divider>
+    <ion-item>
+      <ion-note slot="start">Id Cadastrado</ion-note>
+      <ion-label>{{ fornecedor.id }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-note slot="start">CNPJ</ion-note>
+      <ion-label>{{ fornecedor.cnpj }}</ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-note slot="start">Telefone de Contato</ion-note>
+      <ion-label>{{ fornecedor.contato }}</ion-label>
+    </ion-item>
+
+
+    <ion-item-divider>
+      <ion-label>Endereço</ion-label>
+    </ion-item-divider>
+
+    <ion-item>
+      <ion-note slot="start">CEP</ion-note>
+      <ion-label>{{ fornecedor.endereco!.cep }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-note slot="start">Estado</ion-note>
+      <ion-label>{{ fornecedor.endereco!.uf }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-note slot="start">Cidade</ion-note>
+      <ion-label>{{ fornecedor.endereco!.localidade }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-note slot="start">Bairro</ion-note>
+      <ion-label>{{ fornecedor.endereco!.bairro }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-note slot="start">Logradouro</ion-note>
+      <ion-label>{{ fornecedor.endereco!.logradouro }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-note slot="start">Número</ion-note>
+      <ion-label>{{ fornecedor.endereco!.numero }}</ion-label>
+    </ion-item>
+  </ion-item-group>
+  <ion-row class="ion-justify-content-between">
+    <ion-col size="5" class="ion-text-center">
+      <ion-button size="small" shape="round" color="tertiary" (click)="editarFornecedor(fornecedor.id)">Editar
+        <ion-icon slot="end" name="pencil-outline"></ion-icon>
+      </ion-button>
+    </ion-col>
+
+    <ion-col size="5" class="ion-text-center">
+      <ion-button size="small" shape="round" color="danger" (click)="deletaFornecedor(fornecedor.id)">Excluir
+        <ion-icon slot="end" name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

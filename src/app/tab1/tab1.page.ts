@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FornecedorModel } from '../models/fornecedor.model';
-import { EstoqueService } from '../services/estoque.service';
+import { ModalController } from '@ionic/angular';
+import { ModalCadastroFornecedorComponent } from '../modals/modal-cadastro-fornecedor/modal-cadastro-fornecedor.component';
+import { ModalCadastroProdutoComponent } from '../modals/modal-cadastro-produto/modal-cadastro-produto.component';
+
 
 @Component({
   selector: 'app-tab1',
@@ -10,28 +12,25 @@ import { EstoqueService } from '../services/estoque.service';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-  asdf = 'kokoko'
-  fornecedor!:FornecedorModel[]
-  produtosForm!:FormGroup;
-
   constructor(
-    private formBuilder:FormBuilder,
-    private service:EstoqueService,
-    private router:Router
+    private modalCtrl:ModalController
   ) {}
 
-  toCadastroFornecedores(){
-    this.router.navigateByUrl('tabs/tab1/cadforn')
-  }
 
 
-  async getFornecedor(){
-    await this.service.getFornecedor().subscribe({
-      next:(result)=>{
-        this.fornecedor = result;
-        console.log(this.fornecedor)
-        console.log(this.fornecedor[0].endereço)
-      }
+
+
+
+  async abreModalCadastroFornecedor(){
+    const modal = await this.modalCtrl.create({
+      component:ModalCadastroFornecedorComponent
     })
+    modal.present();
+  }
+  async abreModalCadastroProduto(){
+    const modal = await this.modalCtrl.create({
+      component:ModalCadastroProdutoComponent
+    })
+    modal.present();
   }
 }

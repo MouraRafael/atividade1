@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Fechar</ion-button>
+    </ion-buttons>
+    <ion-title>{{produto.id}} - {{produto.nome}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-item-group>
+  <ion-item-divider>
+    <ion-label>Detalhes</ion-label>
+  </ion-item-divider>
+  <ion-item>
+    <ion-note slot="start">Fornecedor</ion-note>
+    <ion-label>{{produto.fornecedor.razaoSocial}}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-note slot="start">Estoque</ion-note>
+    <ion-label>{{produto.estoque}}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-note slot="start">Preço de Compra</ion-note>
+    <ion-label>{{produto.precoCompra | currency:'BRL'}}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-note slot="start">Preço de Venda</ion-note>
+    <ion-label>{{produto.precoVenda | currency:'BRL'}}</ion-label>
+  </ion-item>
+</ion-item-group>
+<ion-row class="ion-justify-content-between">
+  <ion-col size="5" class="ion-text-center">
+    <ion-button size="small" shape="round" color="tertiary" (click)="editarProduto(produto.id)">Editar
+      <ion-icon slot="end" name="pencil-outline"></ion-icon>
+    </ion-button>
+  </ion-col>
+
+  <ion-col size="5" class="ion-text-center">
+    <ion-button size="small" shape="round" color="danger" (click)="deletarProduto(produto.id)">Excluir
+      <ion-icon slot="end" name="trash-outline"></ion-icon>
+    </ion-button>
+  </ion-col>
+</ion-row>
+</ion-content>

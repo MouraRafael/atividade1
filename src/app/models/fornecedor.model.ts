@@ -4,6 +4,6 @@ export interface FornecedorModel{
   id:number;
   razaoSocial:string;
   cnpj:string;
-  endereço:EnderecoModel
+  endereco:EnderecoModel
   contato:string
 }

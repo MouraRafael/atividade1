@@ -1,26 +1,71 @@
 {
-  "produto":[
+  "produto": [
     {
-      "nome":"Pão Jão",
-      "estoque":5,
-      "precoCompra":15.48,
-      "precoVenda":21.00,
-      "fornecedor":1
+      "nome": "Pão Jão",
+      "estoque": 5,
+      "precoCompra": 15.48,
+      "fornecedor": {
+        "id": "5",
+        "razaoSocial": "Barara LTDA"
+      },
+      "precoVenda": null,
+      "id": 1
+    },
+    {
+      "nome": "Alcatras",
+      "estoque": 147,
+      "precoCompra": 15000.12,
+      "fornecedor": {
+        "id": "4",
+        "razaoSocial": "Mercado do Dinhos"
+      },
+      "percentagemLucro": "20",
+      "precoVenda": 18000.144,
+      "id": 3
     }
   ],
-  "fornecedor":[
+  "fornecedor": [
     {
-      "id": 1,
-      "razaoSocial": "Urba",
-      "cnpj": "59595.5959",
-      "endereço": {
-        "logradouro": "Rua Quinze",
-        "numero": 75,
-        "bairro": "Jacaré",
-        "cidade": "Rio ded Janeiro",
-        "cep": "20970-070"
+      "razaoSocial": "Marke LTDAs",
+      "cnpj": "60.078.718/0001-22",
+      "contato": "(21) 8589-6595",
+      "endereco": {
+        "cep": "46595-032",
+        "uf": "SP",
+        "localidade": "São Paulo",
+        "bairro": "Vila Mimosa",
+        "logradouro": "Rua Vermelha",
+        "numero": "95C"
       },
-      "contato": "(21) 20989-50050"
+      "id": 3
+    },
+    {
+      "razaoSocial": "Mercado do Dinhos",
+      "cnpj": "59.880.349/0001-08",
+      "contato": "(21) 2597-4646",
+      "endereco": {
+        "cep": "20975-090",
+        "uf": "RJ",
+        "localidade": "Rio de Janeiro",
+        "bairro": "Jacarezinho",
+        "logradouro": "Rua Bráulio Cordeiro",
+        "numero": "35"
+      },
+      "id": 4
+    },
+    {
+      "razaoSocial": "Barara LTDA",
+      "cnpj": "75.935.549/0001-77",
+      "contato": "(21) 2659-4545",
+      "endereco": {
+        "cep": "20975-090",
+        "uf": "RJ",
+        "localidade": "Rio de Janeiro",
+        "bairro": "Jacarezinho",
+        "logradouro": "Rua Bráulio Cordeiro",
+        "numero": "75"
+      },
+      "id": 5
     }
   ]
 }
