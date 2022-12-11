@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-button color="medium" (click)="fechaModal()">Fechar</ion-button>
     </ion-buttons>
-    <ion-title>{{(editable)? 'Editar Produto' :'Cadastro de Produtos'}}</ion-title>
+    <ion-title color="primary">{{(editable)? 'Editar Produto' :'Cadastro de Produtos'}}</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -23,7 +23,7 @@
       </ion-item>
       <ion-item>
         <ion-label>Preço de Compra</ion-label>
-        <ion-input formControlName="precoCompra" type="number" required></ion-input>
+        <ion-input formControlName="precoCompra" type="number" min="0" required></ion-input>
       </ion-item>
       <ion-item-group formGroupName="fornecedor">
         <ion-item>
@@ -41,17 +41,8 @@
       </ion-item>
     </ion-item-group>
 
-    <ion-item-group>
-      <ion-item>{{preco}}</ion-item>
-      <ion-item>{{nome}}</ion-item>
-      <ion-item>{{estoque}}</ion-item>
-      <ion-item>{{margem}}</ion-item>
-      <ion-item>{{fornecedor}}</ion-item>
-    </ion-item-group>
-
-
     <div class="ion-padding">
-      <ion-button  expand="block" type="submit" class="ion-no-margin" (click)="(editable)? editarProduto(): cadastrarProduto()">Registrar</ion-button>
+      <ion-button  expand="block" type="submit" class="ion-no-margin" (click)="(editable)? editarProduto(): cadastrarProduto()">{{(editable)? 'Editar': 'Registrar'}}</ion-button>
     </div>
   </form>
 </ion-content>

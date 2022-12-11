@@ -40,11 +40,11 @@ export class ModalCadastroProdutoComponent implements OnInit {
     this.cadastroProdutoForm =  this.formBuilder.group({
       nome:['',[Validators.required,Validators.minLength(3),Validators.maxLength(100)]],
       estoque:['',[Validators.required,Validators.min(0)]],
-      precoCompra:[''],
+      precoCompra:['',[Validators.required, Validators.min(0)]],
       fornecedor:this.formBuilder.group({
-        id:['']
+        id:['',[Validators.required]]
       }),
-      percentagemLucro:[''],
+      percentagemLucro:['', [Validators.required, Validators.min(1)]],
     })
 
 

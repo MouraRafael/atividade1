@@ -1,15 +1,15 @@
 {
   "produto": [
     {
-      "id": 1,
       "nome": "Pão Jão",
       "estoque": 5,
       "precoCompra": 15.48,
-      "precoVenda": 21,
       "fornecedor": {
-        "id": 1,
-        "razaoSocial": "Urba"
-      }
+        "id": "5",
+        "razaoSocial": "Barara LTDA"
+      },
+      "precoVenda": null,
+      "id": 1
     },
     {
       "nome": "Alcatras",
