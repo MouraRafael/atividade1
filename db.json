@@ -1,6 +1,7 @@
 {
   "produto": [
     {
+      "id": 1,
       "nome": "Pão Jão",
       "estoque": 5,
       "precoCompra": 15.48,
@@ -9,6 +10,18 @@
         "id": 1,
         "razaoSocial": "Urba"
       }
+    },
+    {
+      "nome": "Asda",
+      "estoque": 123,
+      "precoCompra": 123,
+      "fornecedor": {
+        "id": "1",
+        "razaoSocial": "Urba"
+      },
+      "percentagemLucro": "123",
+      "precoVenda": 274.28999999999996,
+      "id": 2
     }
   ],
   "fornecedor": [
