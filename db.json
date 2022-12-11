@@ -52,20 +52,6 @@
       "contato": "(21) 20989-50050"
     },
     {
-      "razaoSocial": "asdasda",
-      "cnpj": "00.891.877/0001-10",
-      "contato": "asdafefe",
-      "endereco": {
-        "cep": "20975-090",
-        "uf": "RJ",
-        "localidade": "Rio de Janeiro",
-        "bairro": "Jacaré",
-        "logradouro": "Rua 10",
-        "numero": "3559595959"
-      },
-      "id": 2
-    },
-    {
       "razaoSocial": "Marke LTD",
       "cnpj": "60.078.718/0001-22",
       "contato": "(21) 8589-6595",

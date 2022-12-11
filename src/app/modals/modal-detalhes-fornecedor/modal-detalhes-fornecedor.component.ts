@@ -22,4 +22,15 @@ export class ModalDetalhesFornecedorComponent {
   }
 
 
+  editarFornecedor(id:number){}
+
+  deletaFornecedor(id:number){
+    this.service.deletaFornecedor(id).subscribe({
+      next:()=>{
+        this.cancel();
+      },
+      error:(err)=>console.error(err)
+    })
+  }
+
 }
