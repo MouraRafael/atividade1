@@ -33,7 +33,7 @@ export class ModalCadastroProdutoComponent implements OnInit {
     })
   }
 
-  cancel(){
+  fechaModal(){
     this.modalCtrl.dismiss(null,'cancel')
   }
 
