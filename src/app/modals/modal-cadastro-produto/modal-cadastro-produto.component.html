@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-button color="medium" (click)="fechaModal()">Fechar</ion-button>
     </ion-buttons>
-    <ion-title>Cadastro de Produtos</ion-title>
+    <ion-title>{{(editable)? 'Editar Produto' :'Cadastro de Produtos'}}</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -51,7 +51,7 @@
 
 
     <div class="ion-padding">
-      <ion-button  expand="block" type="submit" class="ion-no-margin" (click)="cadastrarProduto()">Registrar</ion-button>
+      <ion-button  expand="block" type="submit" class="ion-no-margin" (click)="(editable)? editarProduto(): cadastrarProduto()">Registrar</ion-button>
     </div>
   </form>
 </ion-content>

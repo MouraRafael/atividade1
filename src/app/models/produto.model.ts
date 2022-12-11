@@ -7,4 +7,5 @@ export interface ProdutoModel{
   precoCompra:number;
   precoVenda:number;
   fornecedor:FornecedorModel
+  percentagemLucro:number
 }

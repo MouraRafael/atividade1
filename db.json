@@ -12,12 +12,12 @@
       }
     },
     {
-      "nome": "Alcatra",
-      "estoque": 63,
+      "nome": "Alcatras",
+      "estoque": 147,
       "precoCompra": 15000.12,
       "fornecedor": {
-        "id": "3",
-        "razaoSocial": "Marke LTD"
+        "id": "4",
+        "razaoSocial": "Mercado do Dinhos"
       },
       "percentagemLucro": "20",
       "precoVenda": 18000.144,
