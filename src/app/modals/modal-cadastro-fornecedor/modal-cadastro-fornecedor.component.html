@@ -7,7 +7,9 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <form [formGroup]="cadastraFornecedorForm" (submit)="(editable)? editarFornecedor() :cadastraFornecedor()">
+  <form [formGroup]="cadastraFornecedorForm"
+  #cadastraFormGroupDirective="ngForm"
+  (submit)="(editable)? editarFornecedor() :cadastraFornecedor()">
     <ion-list lines="full" class="ion-no-margin ion-no-padding">
       <ion-item-group>
         <ion-item-divider>

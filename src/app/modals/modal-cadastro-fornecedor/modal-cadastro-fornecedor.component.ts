@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { EnderecoModel } from 'src/app/models/endereco.model';
 import { FornecedorModel } from 'src/app/models/fornecedor.model';
@@ -13,6 +13,8 @@ import { EstoqueService } from 'src/app/services/estoque.service';
 })
 export class ModalCadastroFornecedorComponent implements OnInit {
   cadastraFornecedorForm!:FormGroup;
+  @ViewChild('cadastraFormGroupDirective') cadastraFormGroupDirective!:FormGroupDirective;
+
 
   @Input() editable:boolean = false;
   @Input() fornecedor!:FornecedorModel;
@@ -25,18 +27,32 @@ export class ModalCadastroFornecedorComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.cadastraFornecedorForm = this.formBuilder.group({
-      razaoSocial:['',[Validators.required,Validators.minLength(5),Validators.maxLength(100)]],
-      cnpj:['',[Validators.required,Validators.pattern(/\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}/)]],
-      contato:['',[Validators.required,Validators.pattern(/^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$/)]],
-      endereco:this.formBuilder.group({
-        cep:['',[Validators.required,Validators.pattern(/\d{5}-?\d{3}/)]],
-        uf:['',[Validators.required,Validators.minLength(2),Validators.maxLength(2)]],
-        localidade:['',[Validators.required,Validators.minLength(3)]],
-        bairro:['',[Validators.required,Validators.minLength(3),Validators.maxLength(100)]],
-        logradouro:['',[Validators.required,Validators.minLength(3),Validators.maxLength(100)]],
-        numero:['',[Validators.required,Validators.pattern(/^[0-9]+/)]]
-      })
+    // this.cadastraFornecedorForm = this.formBuilder.group({
+    //   razaoSocial:['',[Validators.required,Validators.minLength(5),Validators.maxLength(100)]],
+    //   cnpj:['',[Validators.required,Validators.pattern(/\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}/)]],
+    //   contato:['',[Validators.required,Validators.pattern(/^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$/)]],
+    //   endereco:this.formBuilder.group({
+    //     cep:['',[Validators.required,Validators.pattern(/\d{5}-?\d{3}/)]],
+    //     uf:['',[Validators.required,Validators.minLength(2),Validators.maxLength(2)]],
+    //     localidade:['',[Validators.required,Validators.minLength(3)]],
+    //     bairro:['',[Validators.required,Validators.minLength(3),Validators.maxLength(100)]],
+    //     logradouro:['',[Validators.required,Validators.minLength(3),Validators.maxLength(100)]],
+    //     numero:['',[Validators.required,Validators.pattern(/^[0-9]+/)]]
+    //   })
+    // })
+
+    this.cadastraFornecedorForm = new FormGroup({
+      'razaoSocial': new FormControl('',[Validators.required,Validators.minLength(5),Validators.maxLength(100)] ),
+      'cnpj': new FormControl('', [Validators.required,Validators.pattern(/\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}/)]),
+      'contato': new FormControl('', [Validators.required,Validators.pattern(/^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$/)]),
+      'endereco': new FormGroup({
+        'cep': new FormControl('',[Validators.required,Validators.pattern(/\d{5}-?\d{3}/)]),
+        'uf': new FormControl('',[Validators.required,Validators.minLength(2),Validators.maxLength(2)]),
+        'localidade': new FormControl('',[Validators.required,Validators.minLength(3)]),
+        'bairro': new FormControl('',[Validators.required,Validators.minLength(3),Validators.maxLength(100)]),
+        'logradouro': new FormControl('',[Validators.required,Validators.minLength(3),Validators.maxLength(100)]),
+        'numero': new FormControl('',[Validators.required,Validators.pattern(/^[0-9]+/)]),
+      }),
     })
 
 
@@ -52,6 +68,7 @@ export class ModalCadastroFornecedorComponent implements OnInit {
   }
 
   cadastraFornecedor(){
+
     const fornecedor = this.cadastraFornecedorForm.getRawValue() as FornecedorModel;
     this.service.cadastraFornecedor(fornecedor).subscribe({
       next:()=>this.cancel()
