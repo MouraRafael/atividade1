@@ -21,7 +21,6 @@ export class ModalCadastroFornecedorComponent implements OnInit {
 
   constructor(
     private modalCtrl:ModalController,
-    private formBuilder:FormBuilder,
     private service:EstoqueService,
     private correiosService:CorreiosService
   ) { }
@@ -43,7 +42,10 @@ export class ModalCadastroFornecedorComponent implements OnInit {
 
     this.cadastraFornecedorForm = new FormGroup({
       'razaoSocial': new FormControl('',[Validators.required,Validators.minLength(5),Validators.maxLength(100)] ),
-      'cnpj': new FormControl('', [Validators.required,Validators.pattern(/\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}/)]),
+      'cnpj': new FormControl('', [
+        Validators.required,
+        Validators.pattern(/\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}/)
+      ]),
       'contato': new FormControl('', [Validators.required,Validators.pattern(/^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$/)]),
       'endereco': new FormGroup({
         'cep': new FormControl('',[Validators.required,Validators.pattern(/\d{5}-?\d{3}/)]),
@@ -67,12 +69,11 @@ export class ModalCadastroFornecedorComponent implements OnInit {
     this.modalCtrl.dismiss(null,'cancel')
   }
 
-  cadastraFornecedor(){
-
-    const fornecedor = this.cadastraFornecedorForm.getRawValue() as FornecedorModel;
-    this.service.cadastraFornecedor(fornecedor).subscribe({
-      next:()=>this.cancel()
-    });
+  cadastraFornecedor(values:any){
+    let novoFornecedor:FornecedorModel = {...values}
+    this.service.cadastraFornecedor(novoFornecedor);
+    console.log(novoFornecedor)
+    this.cadastraFormGroupDirective.reset();
   }
 
   carregaEndereco(){
@@ -103,16 +104,11 @@ export class ModalCadastroFornecedorComponent implements OnInit {
     })
   }
 
-  editarFornecedor(){
-    const fornecedor:FornecedorModel = this.cadastraFornecedorForm.getRawValue() as FornecedorModel
-    fornecedor.id = this.fornecedor.id
-    console.log(fornecedor)
-    this.service.atualizaFornecedor(fornecedor).subscribe({
-      next:()=>{
-        this.cancel()
-      },
-      error:(err)=>console.error(err)
-    })
+  editarFornecedor(values:any){
+    let novoFornecedor:FornecedorModel = {...values}
+    this.service.atualizaFornecedor(novoFornecedor);
+    console.log(novoFornecedor)
+    this.cadastraFormGroupDirective.reset();
   }
 
 

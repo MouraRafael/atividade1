@@ -35,7 +35,7 @@ export class Tab2Page {
     }
 
 
-    async abreModal(id:number){
+    async abreModal(id:string){
       const fornecedor:FornecedorModel = this.fornecedores.filter(fornecedor => fornecedor.id === id)[0]
 
       const modal = await this.modalCtrl.create({

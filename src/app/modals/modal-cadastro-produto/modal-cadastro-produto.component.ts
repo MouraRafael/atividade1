@@ -87,10 +87,7 @@ export class ModalCadastroProdutoComponent implements OnInit {
     produto.precoVenda = produto.precoCompra+(produto.precoCompra * this.margem/100)
 
 
-    this.service.cadastraProduto(produto).subscribe({
-      next:(result)=>console.log(result),
-      error:(error)=>console.log(error)
-    })
+    this.service.cadastraProduto(produto)
 
   }
 
@@ -116,12 +113,7 @@ export class ModalCadastroProdutoComponent implements OnInit {
     produto.precoVenda = produto.precoCompra+(produto.precoCompra * this.margem/100)
     produto.id = this.produto.id
 
-    this.service.atualizaProduto(produto).subscribe({
-      next:()=>{
-        this.fechaModal()
-      },
-      error: (err) => console.error("Error:",err)
-    })
+    this.service.atualizaProduto(produto)
 
   }
 

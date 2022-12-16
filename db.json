@@ -66,6 +66,48 @@
         "numero": "75"
       },
       "id": 5
+    },
+    {
+      "razaoSocial": "Marke LTDAs",
+      "cnpj": "60.078.718/0001-22",
+      "contato": "(21) 8589-6595",
+      "endereco": {
+        "cep": "20970-090",
+        "uf": "RJ",
+        "localidade": "Rio de Janeiro",
+        "bairro": "Riachuelo",
+        "logradouro": "Rua Carlos Costa",
+        "numero": "35"
+      },
+      "id": 6
+    },
+    {
+      "razaoSocial": "Marke LTDAs",
+      "cnpj": "60.078.718/0001-22",
+      "contato": "(21) 8589-6595",
+      "endereco": {
+        "cep": "20970-090",
+        "uf": "RJ",
+        "localidade": "Rio de Janeiro",
+        "bairro": "Riachuelo",
+        "logradouro": "Rua Carlos Costa",
+        "numero": "12"
+      },
+      "id": 7
+    },
+    {
+      "razaoSocial": "ASDFFERE",
+      "cnpj": "59.880.349/0001-08",
+      "contato": "(12) 5995-5959",
+      "endereco": {
+        "cep": "20975-070",
+        "uf": "RJ",
+        "localidade": "Rio de Janeiro",
+        "bairro": "Jacarezinho",
+        "logradouro": "Travessa Jacaré",
+        "numero": "59"
+      },
+      "id": 8
     }
   ]
 }
