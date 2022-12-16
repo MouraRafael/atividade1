@@ -59,7 +59,7 @@ export class ModalCadastroFornecedorComponent implements OnInit {
 
 
     if(this.editable){
-      console.log("Editar", this.fornecedor)
+      //console.log("Editar", this.fornecedor)
       this.carregaForm()
     }
   }
@@ -80,7 +80,7 @@ export class ModalCadastroFornecedorComponent implements OnInit {
     const cep = this.cadastraFornecedorForm.get('endereco')?.get('cep')?.value;
     this.correiosService.pegaEndereco(cep).subscribe({
       next:(end:EnderecoModel)=>{
-        console.log(end)
+        //console.log(end)
         this.cadastraFornecedorForm.get('endereco')?.patchValue({
           cep:end.cep,
           uf: end.uf,
@@ -105,10 +105,11 @@ export class ModalCadastroFornecedorComponent implements OnInit {
   }
 
   editarFornecedor(values:any){
-    let novoFornecedor:FornecedorModel = {...values}
-    this.service.atualizaFornecedor(novoFornecedor);
-    console.log(novoFornecedor)
+    let fornecedorEditado:FornecedorModel = {id:this.fornecedor.id,...values}
+
+    this.service.atualizaFornecedor(fornecedorEditado);
     this.cadastraFormGroupDirective.reset();
+
   }
 
 

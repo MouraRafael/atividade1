@@ -42,9 +42,9 @@ export class EstoqueService {
     )
   }
   atualizaFornecedor(fornecedor:FornecedorModel):Promise<void>{
+    console.log(fornecedor)
     const document = doc(this.firestore, 'fornecedores', fornecedor?.id);
     const {id, ...data} = fornecedor;
-
     return setDoc(document,data)
   }
   deletaFornecedor(id:string):Promise<void>{

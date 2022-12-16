@@ -26,7 +26,7 @@ export class Tab2Page {
       this.service.listarFornecedores().subscribe({
         next:(result)=>{
           this.fornecedores = result
-          console.log(this.fornecedores)
+          //console.log(this.fornecedores)
         },
         error:(err)=>{
           console.log(err)
