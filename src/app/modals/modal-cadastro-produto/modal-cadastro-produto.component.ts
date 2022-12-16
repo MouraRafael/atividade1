@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { FornecedorModel } from 'src/app/models/fornecedor.model';
 import { ProdutoModel } from 'src/app/models/produto.model';
@@ -12,6 +12,10 @@ import { EstoqueService } from 'src/app/services/estoque.service';
 })
 export class ModalCadastroProdutoComponent implements OnInit {
   cadastroProdutoForm!:FormGroup;
+  @ViewChild('cadastraProdutoDirective') cadastraProdutoDirective!:FormGroupDirective;
+
+
+
   fornecedores:FornecedorModel[] =[];
 
   @Input() editable:boolean = false;
@@ -37,15 +41,30 @@ export class ModalCadastroProdutoComponent implements OnInit {
     })
 
 
-    this.cadastroProdutoForm =  this.formBuilder.group({
-      nome:['',[Validators.required,Validators.minLength(3),Validators.maxLength(100)]],
-      estoque:['',[Validators.required,Validators.min(0)]],
-      precoCompra:['',[Validators.required, Validators.min(0)]],
-      fornecedor:this.formBuilder.group({
-        id:['',[Validators.required]]
+    // this.cadastroProdutoForm =  this.formBuilder.group({
+    //   nome:['',[Validators.required,Validators.minLength(3),Validators.maxLength(100)]],
+    //   estoque:['',[Validators.required,Validators.min(0)]],
+    //   precoCompra:['',[Validators.required, Validators.min(0)]],
+    //   fornecedor:this.formBuilder.group({
+    //     id:['',[Validators.required]]
+    //   }),
+    //   percentagemLucro:['', [Validators.required, Validators.min(1)]],
+    // })
+
+    this.cadastroProdutoForm = new FormGroup({
+      'nome':new FormControl('',[Validators.required,Validators.minLength(3),Validators.maxLength(100)]),
+      'estoque':new FormControl('',[Validators.required,Validators.min(0)]),
+      'precoCompra':new FormControl('', [Validators.required, Validators.min(0)]),
+      'fornecedor': new FormGroup({
+        'id': new FormControl('',[Validators.required]),
       }),
-      percentagemLucro:['', [Validators.required, Validators.min(1)]],
+      'percentagemLucro': new FormControl('',[Validators.required, Validators.min(1)])
     })
+
+
+
+
+
 
 
     if(this.editable){
@@ -91,6 +110,7 @@ export class ModalCadastroProdutoComponent implements OnInit {
 
   editarProduto(){
     const produto = this.cadastroProdutoForm.getRawValue() as ProdutoModel;
+
     const fornecedor = this.fornecedores.filter(fornecedor => fornecedor.id == produto.fornecedor.id)[0]
     produto.fornecedor.razaoSocial = fornecedor.razaoSocial
     produto.precoVenda = produto.precoCompra+(produto.precoCompra * this.margem/100)

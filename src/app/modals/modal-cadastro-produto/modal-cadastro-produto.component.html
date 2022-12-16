@@ -7,7 +7,9 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <form [formGroup]="cadastroProdutoForm">
+  <form [formGroup]="cadastroProdutoForm"
+  #cadastraProdutoDirective="ngForm"
+  >
     <ion-item-group>
       <ion-item-divider>
         <ion-label>Dados do Produto</ion-label>
