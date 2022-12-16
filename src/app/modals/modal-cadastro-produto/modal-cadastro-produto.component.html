@@ -44,7 +44,7 @@
     </ion-item-group>
 
     <div class="ion-padding">
-      <ion-button  expand="block" type="submit" class="ion-no-margin" (click)="(editable)? editarProduto(): cadastrarProduto()">{{(editable)? 'Editar': 'Registrar'}}</ion-button>
+      <ion-button  expand="block" type="submit" class="ion-no-margin" (click)="(editable)? editarProduto(cadastroProdutoForm.value): cadastrarProduto(cadastroProdutoForm.value)">{{(editable)? 'Editar': 'Registrar'}}</ion-button>
     </div>
   </form>
 </ion-content>

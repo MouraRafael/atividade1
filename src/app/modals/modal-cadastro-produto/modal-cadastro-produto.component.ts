@@ -79,15 +79,17 @@ export class ModalCadastroProdutoComponent implements OnInit {
   }
 
 
-  cadastrarProduto(){
-    const produto = this.cadastroProdutoForm.getRawValue() as ProdutoModel;
-    const fornecedor = this.fornecedores.filter(fornecedor => fornecedor.id == produto.fornecedor.id)[0]
-    console.log(fornecedor)
-    produto.fornecedor.razaoSocial = fornecedor.razaoSocial
-    produto.precoVenda = produto.precoCompra+(produto.precoCompra * this.margem/100)
+  cadastrarProduto(values:any){
+    let novoProduto: ProdutoModel = {...values}
 
+    const fornecedor = this.fornecedores.filter(fornecedor => fornecedor.id == novoProduto.fornecedor.id)[0]
 
-    this.service.cadastraProduto(produto)
+    novoProduto.fornecedor.razaoSocial = fornecedor.razaoSocial
+    novoProduto.precoVenda = novoProduto.precoCompra+(novoProduto.precoCompra * this.margem/100)
+
+    console.log(novoProduto)
+
+    this.service.cadastraProduto(novoProduto)
 
   }
 
@@ -105,7 +107,7 @@ export class ModalCadastroProdutoComponent implements OnInit {
     })
   }
 
-  editarProduto(){
+  editarProduto(values:any){
     const produto = this.cadastroProdutoForm.getRawValue() as ProdutoModel;
 
     const fornecedor = this.fornecedores.filter(fornecedor => fornecedor.id == produto.fornecedor.id)[0]

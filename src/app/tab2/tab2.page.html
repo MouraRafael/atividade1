@@ -18,7 +18,7 @@
 
   <ion-grid>
     <ion-row >
-        <ion-col size="1">id</ion-col>
+
         <ion-col >Razão Social</ion-col>
         <ion-col class="ion-hide-sm-down">CNPJ</ion-col>
         <ion-col class="ion-hide-md-down">Contato</ion-col>
@@ -26,7 +26,7 @@
     <ion-item-divider><hr></ion-item-divider>
 
       <ion-row *ngFor="let fornecedor of fornecedores" (click)="abreModal(fornecedor.id)">
-        <ion-col size="1" class="ion-padding">{{fornecedor.id}}</ion-col>
+
         <ion-col>{{ fornecedor.razaoSocial }}</ion-col>
         <ion-col class="ion-hide-sm-down">{{ fornecedor.cnpj }}</ion-col>
         <ion-col class="ion-hide-md-down">{{ fornecedor.contato }}</ion-col>

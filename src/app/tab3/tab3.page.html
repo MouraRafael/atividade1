@@ -18,7 +18,7 @@
 
   <ion-grid>
     <ion-row>
-        <ion-col size="1">id</ion-col>
+
         <ion-col >Nome</ion-col>
         <ion-col class="ion-hide-sm-down">Qtd em Estoque</ion-col>
         <ion-col class="ion-hide-md-down">Fornecedor</ion-col>
@@ -26,7 +26,7 @@
 
 
       <ion-row *ngFor="let produto of produtos" (click)="abreModal(produto.id)" class="ion-padding">
-        <ion-col size="1" >{{produto.id}}</ion-col>
+
         <ion-col>{{ produto.nome }}</ion-col>
         <ion-col class="ion-hide-sm-down">{{ produto.estoque }}</ion-col>
         <ion-col class="ion-hide-md-down">{{ produto.fornecedor.razaoSocial }}</ion-col>
