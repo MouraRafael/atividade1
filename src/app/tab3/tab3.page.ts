@@ -29,7 +29,7 @@ export class Tab3Page {
     })
   }
 
-  async abreModal(id:number){
+  async abreModal(id:string){
     const produto:ProdutoModel = this.produtos.filter(produto => produto.id === id)[0]
     const modal = await this.modalCtrl.create({
       component:ModalDetalhesProdutoComponent,

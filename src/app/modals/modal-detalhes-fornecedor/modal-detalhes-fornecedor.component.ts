@@ -22,17 +22,12 @@ export class ModalDetalhesFornecedorComponent {
   }
 
 
-  deletaFornecedor(id:number){
-    this.service.deletaFornecedor(id).subscribe({
-      next:()=>{
-        this.cancel();
-      },
-      error:(err)=>console.error(err)
-    })
+  deletaFornecedor(id:string){
+    this.service.deletaFornecedor(id)
   }
 
 
-  async editarFornecedor(id:number){
+  async editarFornecedor(id:string){
     const modal = await this.modalCtrl.create({
       component:ModalCadastroFornecedorComponent,
       componentProps:{

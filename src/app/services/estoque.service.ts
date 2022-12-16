@@ -1,14 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { FornecedorModel } from '../models/fornecedor.model';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { ProdutoModel } from '../models/produto.model';
 
-const API_URL = 'http://localhost:3000';
-const HTTP_OPTIONS = {
-  headers:new HttpHeaders(
-  {'Content-Type': 'application/json;charset=utf-8'}
-)}
+import { collection, collectionData, deleteDoc, doc, docSnapshots, Firestore, setDoc } from '@angular/fire/firestore';
+
 
 
 @Injectable({
@@ -17,47 +13,78 @@ const HTTP_OPTIONS = {
 export class EstoqueService {
 
   constructor(
-    private http:HttpClient,
+    private firestore:Firestore
   ) { }
 
-  cadastraFornecedor(fornecedor:FornecedorModel){
-    console.log(fornecedor)
-    return this.http.post(`${API_URL}/fornecedor`,fornecedor,HTTP_OPTIONS)
+  cadastraFornecedor(fornecedor:FornecedorModel):Promise<void>{
+    const document = doc(collection(this.firestore,'fornecedores'));
+    return setDoc(document,fornecedor)
   }
 
   listarFornecedores():Observable<FornecedorModel[]>{
-    return this.http.get<FornecedorModel[]>(`${API_URL}/fornecedor`);
+    const fornecedor = collection(this.firestore, 'fornecedores');
+    return collectionData(fornecedor, {idField: 'id'})
+    .pipe(
+      map(result => result as FornecedorModel[])
+    )
   }
-  getFornecedor(id:number):Observable<FornecedorModel>{
-    return this.http.get<FornecedorModel>(`${API_URL}/fornecedor/${id}`,HTTP_OPTIONS);
+  getFornecedor(id:string):Observable<FornecedorModel>{
+    const document = doc(this.firestore, `fornecedores/${id}`);
+    return docSnapshots(document)
+    .pipe(
+      map(
+        doc => {
+          const id = doc.id;
+          const data = doc.data();
+          return {id, ...data} as FornecedorModel;
+        }
+      )
+    )
   }
-  atualizaFornecedor(fornecedor:FornecedorModel):Observable<any>{
-    return this.http.put(`${API_URL}/fornecedor/${fornecedor.id}`,fornecedor,HTTP_OPTIONS)
+  atualizaFornecedor(fornecedor:FornecedorModel):Promise<void>{
+    const document = doc(this.firestore, 'fornecedores', fornecedor?.id);
+    const {id, ...data} = fornecedor;
+
+    return setDoc(document,data)
   }
-  deletaFornecedor(id:number):Observable<any>{
-    return this.http.delete(`${API_URL}/fornecedor/${id}`,HTTP_OPTIONS)
+  deletaFornecedor(id:string):Promise<void>{
+    const document = doc(this.firestore,'fornecedores',id);
+    return deleteDoc(document)
   }
 
 
 
 
-  cadastraProduto(produto:ProdutoModel){
-    const prod = JSON.stringify(produto);
-    const produtoCadastro:ProdutoModel = JSON.parse(prod) as ProdutoModel
-    console.log(produtoCadastro)
-    return this.http.post(`${API_URL}/produto`,produtoCadastro,HTTP_OPTIONS)
+  cadastraProduto(produto:ProdutoModel):Promise<void>{
+    const document = doc(collection(this.firestore,'produtos'));
+    return setDoc(document,produto);
   }
   listarProdutos():Observable<ProdutoModel[]>{
-    return this.http.get<ProdutoModel[]>(`${API_URL}/produto`)
+    const produtos = collection(this.firestore,'produtos');
+    return collectionData(produtos,{idField:'id'}).pipe(
+      map(result => result as ProdutoModel[])
+    )
   }
-  getProduto(id:number):Observable<ProdutoModel>{
-    return this.http.get<ProdutoModel>(`${API_URL}/produto/${id}`,HTTP_OPTIONS);
+  getProduto(id:string):Observable<ProdutoModel>{
+    const document = doc(this.firestore, `produtos/${id}`);
+    return docSnapshots(document).pipe(
+      map(
+        doc => {
+          const id = doc.id;
+          const data = doc.data();
+          return {id , ...data} as ProdutoModel;
+        }
+      )
+    )
   }
-  deletaProduto(id:number){
-    return this.http.delete(`${API_URL}/produto/${id}`,HTTP_OPTIONS)
+  deletaProduto(id:string):Promise<void>{
+    const document = doc(this.firestore,'produtos',id)
+    return deleteDoc(document)
   }
-  atualizaProduto(produto:ProdutoModel):Observable<any>{
-    return this.http.put(`${API_URL}/produto/${produto.id}`,produto,HTTP_OPTIONS)
+  atualizaProduto(produto:ProdutoModel):Promise<void>{
+    const document = doc(this.firestore,'produtos', produto?.id);
+    const { id, ...data } = produto;
+    return setDoc(document, data)
   }
 
 }

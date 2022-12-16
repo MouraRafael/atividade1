@@ -67,3 +67,6 @@ testem.log
 .DS_Store
 Thumbs.db
 z-atividade-1-detalhes.txt
+
+old.*.service.ts
+old.*.service.spec.ts

@@ -20,20 +20,13 @@ export class ModalDetalhesProdutoComponent implements OnInit {
     return this.modalCtrl.dismiss(null, 'cancel')
   }
 
-  deletarProduto(id:number){
-    this.service.deletaProduto(id).subscribe({
-      next:()=>{
-        this.cancel();
-      },
-      error:(err)=>{
-        console.error(err)
-      }
-    })
+  deletarProduto(id:string){
+    this.service.deletaProduto(id)
   }
 
 
 
-  async editarProduto(id:number){
+  async editarProduto(id:string){
     const modal = await this.modalCtrl.create({
       component:ModalCadastroProdutoComponent,
       componentProps:{
